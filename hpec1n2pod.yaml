@@ -1,0 +1,28 @@
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nvidia-install-hpec1n2
+  namespace: harvester-system
+spec:
+  nodeName: hpec1n2
+  hostPID: true
+  containers:
+  - name: install
+    image: rancher/harvester-nvidia-driver-toolkit:v1.7-20260209
+    command: ["sleep", "3600"]
+    securityContext:
+      privileged: true
+    volumeMounts:
+    - name: host
+      mountPath: /host
+    - name: modules
+      mountPath: /lib/modules
+  volumes:
+  - name: host
+    hostPath:
+      path: /
+  - name: modules
+    hostPath:
+      path: /lib/modules
+EOF
