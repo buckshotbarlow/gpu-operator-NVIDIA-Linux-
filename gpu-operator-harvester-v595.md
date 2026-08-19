@@ -168,7 +168,8 @@ kubectl exec -it -n harvester-system nvidia-install-<NODE_NAME> -- bash
 
 ```bash
 # inside the container — full install, kernel modules included
-curl -o /tmp/NVIDIA-Linux-x86_64-595.71.05.run http://<HAULER_FILESERVER_IP>:8080/NVIDIA-Linux-x86_64-595.71.05.run
+# EX: curl -o /tmp/NVIDIA-Linux-x86_64-595.71.05.run http://<HAULER_FILESERVER_IP>:8080/NVIDIA-Linux-x86_64-595.71.05.run
+url -o /tmp/NVIDIA-Linux-x86_64-595.71.05.run http://192.168.2.5/NVIDIA/NVIDIA-Linux-x86_64-595.71.05.run
 chmod +x /tmp/NVIDIA-Linux-x86_64-595.71.05.run
 /tmp/NVIDIA-Linux-x86_64-595.71.05.run --silent --no-questions
 
