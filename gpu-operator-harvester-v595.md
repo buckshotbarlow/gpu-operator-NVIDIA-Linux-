@@ -56,7 +56,8 @@ zypper install -y nvidia-container-toolkit
 cp /usr/bin/nvidia-container-runtime /usr/local/bin/nvidia-container-runtime
 
 # install nvidia userspace components (no kernel modules, lean/compute-only)
-curl -o /tmp/NVIDIA-Linux-x86_64-595.71.05.run http://<HAULER_FILESERVER_IP>:8080/NVIDIA-Linux-x86_64-595.71.05.run
+# EX: curl -o /tmp/NVIDIA-Linux-x86_64-595.71.05.run http://<HAULER_FILESERVER_IP>:8080/NVIDIA-Linux-x86_64-595.71.05.run
+curl -o /tmp/NVIDIA-Linux-x86_64-595.71.05.run http://192.168.2.5/NVIDIA-Linux-x86_64-595.71.05.run
 chmod +x /tmp/NVIDIA-Linux-x86_64-595.71.05.run
 /tmp/NVIDIA-Linux-x86_64-595.71.05.run --silent --no-questions \
   --no-kernel-modules --no-x-check --no-nouveau-check \
